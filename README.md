@@ -17,20 +17,32 @@ To perform regular differncing,seasonal adjustment and log transformatio on inte
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import adfuller, kpss
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 ```
 
 ### Loading the dataset:
 ```
-data=pd.read_csv('/content/international-airline-passengers.csv')
+data = pd.read_csv('/content/seattle_weather_1948-2017.csv', parse_dates=['DATE'], index_col='DATE')
 ```
 
 ### Plot the data without Conversion:
 ```
-x=data['Month']
-y=data['International airline passengers: monthly totals in thousands. Jan 49 ? Dec 60']
-plt.xlabel('Month')
-plt.ylabel('International airline passengers: monthly totals in thousands.')
-plt.plot(x,y)
+def test_stationarity(series):
+result = adfuller(series.dropna())
+print('ADF Statistic:', result[0])
+print('p-value:', result[1])
+print('Critical Values:', result[4])
+print('')
+test_stationarity(data['PRCP'])
+plt.figure(figsize=(10, 6))
+plt.plot(data['PRCP'], label='PRCP')
+plt.title('Precipitation Over Time')
+plt.xlabel('Date')
+plt.ylabel('Precipitation')
+plt.legend()
+plt.show()
+
 ```
 
 ### REGULAR DIFFERENCING
