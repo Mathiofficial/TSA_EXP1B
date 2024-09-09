@@ -47,45 +47,41 @@ plt.show()
 
 ### REGULAR DIFFERENCING
 ```
-data3=data
-data3['diff']=data3['International airline passengers: monthly totals in thousands. Jan 49 ? Dec 60'].diff(periods=1)
-data3=data3.dropna()
-x=data3['Month']
-y=data3['diff']
-plt.xlabel('Month')
-plt.ylabel('International airline passengers: monthly totals in thousands.')
-plt.plot(x,y)
+data['PRCP_diff'] = data['PRCP'] - data['PRCP'].shift(1)
+data_diff = data.dropna()
+test_stationarity(data_diff['PRCP_diff'])
+plt.figure(figsize=(10, 6))
+plt.plot(data_diff['PRCP_diff'], label='Differenced PRCP')
+plt.title('Differenced Precipitation Over Time')
+plt.xlabel('Date')
+plt.ylabel('Differenced Precipitation')
+plt.legend()
+plt.show()
 ```
 
 ### SEASONAL ADJUSTMENT
 ```
-data1=data
-data1['SeasonalAdjustment'] = data1['International airline passengers: monthly totals in thousands. Jan 49 ? Dec 60'] - data1['International airline passengers: monthly totals in thousands. Jan 49 ? Dec 60'].shift(12)
-data1['SeasonalAdjustment'].dropna()
-x=data1['Month']
-y=data1["SeasonalAdjustment"]
-plt.xlabel('Month')
-plt.ylabel('International airline passengers: monthly totals in thousands.')
-plt.plot(x,y)
+plt.figure(figsize=(12, 6))
+plt.subplot(121)
+plot_acf(data_diff['PRCP_diff'], ax=plt.gca(), lags=40)
+plt.title('ACF of Differenced PRCP')
 ```
 
 ### LOG TRANSFORMATION
 ```
-data2=data
-data2['log']=np.log(data2['diff']).dropna()
-data2=data2.dropna()
-x=data2['Month']
-y=data2['log']
-plt.xlabel('Month')
-plt.ylabel('International airline passengers: monthly totals in thousands.')
-# plt.figure(figsize=(8, 6)) 
-plt.plot(x,y)
+
+plt.subplot(122)
+plot_pacf(data_diff['PRCP_diff'], ax=plt.gca(), lags=40)
+plt.title('PACF of Differenced PRCP')
+plt.tight_layout()
+plt.show()
 ```
 
 ## OUTPUT:
 ### WITHOUT CONVERSION:
 
-![311306232-c6110233-a143-44fc-8055-73256231bdb1](https://github.com/user-attachments/assets/cb057271-a9d2-4089-ad0d-69417fd42f5c)
+![image](https://github.com/user-attachments/assets/b1b46bbf-4c81-4fcb-a5cc-5a748c0f6780)
+
 
 
 ### REGULAR DIFFERENCING:
