@@ -86,16 +86,20 @@ plt.show()
 
 ### REGULAR DIFFERENCING:
 
-![311306425-f13bc5b1-f547-4a2e-b52e-53bee0ba4166](https://github.com/user-attachments/assets/57987a20-78bb-4741-9e3e-2fa8b73ca0bc)
+![image](https://github.com/user-attachments/assets/d801d8b3-242a-4925-81fb-1a675118763e)
+
 
 
 ### SEASONAL ADJUSTMENT:
 
-![311306589-9e15eef9-4278-486b-9fa6-766b373ecc73](https://github.com/user-attachments/assets/89773311-261e-4ce4-a889-e514fac33361)
+![image](https://github.com/user-attachments/assets/52065c38-e4bd-4a00-8fa6-55fe23da3084)
+
 
 
 ### LOG TRANSFORMATION:
-![311306698-75a84c2a-e8d5-4e98-b88e-26e6da9d5d9d](https://github.com/user-attachments/assets/64c7b67e-ba0c-4d76-a237-64defc0ee98f)
+
+![image](https://github.com/user-attachments/assets/e08653cf-7425-4895-aefd-720513aee8c3)
+
 
 
 
