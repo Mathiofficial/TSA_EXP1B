@@ -2,7 +2,7 @@
 # Date: 23/08/2024
 # Name : Mathiyazhagan A
 ## AIM:
-To perform regular differncing,seasonal adjustment and log transformatio on international airline passenger data
+To perform regular differncing,seasonal adjustment and log transformatio on settle weather data
 
 ## ALGORITHM:
 1. Import the required packages like pandas and numpy
@@ -104,5 +104,5 @@ plt.show()
 
 
 ### RESULT:
-Thus we have created the python code for the conversion of non stationary to stationary data on international airline passenger
+Thus we have created the python code for the conversion of non stationary to stationary data on settle weather
 data.
